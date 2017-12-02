@@ -3,6 +3,10 @@
 ## Purpose
 The dashboard would serve as the central access point for several projects under MetaKGP. The goal is to provide the KGP community an easy to use dashboard with useful utilities meant for students.
 
+## Development instructions
+- Use yarn (not npm) exclusively for managing packages. You can install yarn from here: https://yarnpkg.com/en/
+- This project has been bootstrapped with [create-react-app](https://github.com/facebookincubator/create-react-app). To start the server, use `yarn start`.
+
 ## History
 The dashboard was originally worked upon for the Inter-IIT tech event sharing the same moniker. KGP won bronze at the event and the original repository can be found [here](https://github.com/ghostwriternr/dashboard-beta).
 

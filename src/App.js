@@ -18,18 +18,18 @@ class App extends Component {
                     <h1 className='logo'>IITKGP</h1>
                     <ul className='menu'>
                         <li><i className="fa fa-home" aria-hidden="true"></i><Link className='link' to='/'>Home</Link></li>
-                        <li><i className="fa fa-paper-plane-o" aria-hidden="true"></i><Link className='link' to='/mfqp'>MFQP</Link></li>
-                        <li><i className="fa fa-newspaper-o" aria-hidden="true"></i><Link className='link' to='/naarad'>Naarad</Link></li>
-                        <li><i className="fa fa-address-book" aria-hidden="true"></i><Link className='link' to='/mcmp'>MCMP</Link></li>
-                        <li><i className="fa fa-table" aria-hidden="true"></i><Link className='link' to='/gyft'>GYFT</Link></li>
+                        <li><i className="fa fa-paper-plane-o" aria-hidden="true"></i><Link className='link' to='/1'>MFQP</Link></li>
+                        <li><i className="fa fa-newspaper-o" aria-hidden="true"></i><Link className='link' to='/2'>Naarad</Link></li>
+                        <li><i className="fa fa-address-book" aria-hidden="true"></i><Link className='link' to='/3'>MCMP</Link></li>
+                        <li><i className="fa fa-table" aria-hidden="true"></i><Link className='link' to='/4'>GYFT</Link></li>
                     </ul>
                 </div>
                 <div className='main'>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/mfqp' component={MFQP} />
-                    <Route exact path='/naarad' component={Naarad} />
-                    <Route exact path='/mcmp' component={MCMP} />
-                    <Route exact path='/gyft' component={GYFT} />
+                    <Route exact path='/1' component={MFQP} />
+                    <Route exact path='/2' component={Naarad} />
+                    <Route exact path='/3' component={MCMP} />
+                    <Route exact path='/4' component={GYFT} />
                 </div>
             </div>
         </Router>

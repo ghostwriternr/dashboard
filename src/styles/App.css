@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.mainContent {
+  background: url(../images/welcome.jpg) no-repeat;
+  -webkit-background-size: 80%;
+  -moz-background-size: 80%;
+  -o-background-size: 80%;
+  background-size: 80%;
+  background-position: bottom;
+}
+
+.color-1 {
+  color: #62ccc8;
+}
+
+.color-2 {
+  color: #3b5fad;
+}
+
+.color-3 {
+  color: #ff6b53;
+}
+
+.color-4 {
+  color: #ffb83a;
+}

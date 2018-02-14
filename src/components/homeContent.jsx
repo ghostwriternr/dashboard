@@ -9,7 +9,7 @@ class HomeContent extends Component {
           <div className="home-content">
             <div id="home-title">Hello, KGP.</div>
             <br />
-            <div id="home-subtitle">Welcome to your dashboard.</div>
+            <div id="home-subtitle">Welcome to your dashboard (WIP).</div>
           </div>
         </div>
       </div>

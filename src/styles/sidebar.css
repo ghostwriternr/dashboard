@@ -24,9 +24,18 @@
     text-align: center;
 }
 
-.sidebar-content a:hover {
+.sidebar-content li a:hover {
     background: #3b5fad;
     color: #fff;
+}
+
+.sidebar-content .active {
+    background: #3b5fad;
+    color: #fff;
+}
+
+.sidebar-content a {
+    outline: 0;
 }
 
 .sidebar-content li a {

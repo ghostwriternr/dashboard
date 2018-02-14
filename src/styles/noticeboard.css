@@ -1,3 +1,39 @@
 .notice-card {
     background: #fff;
+    margin: 10px 0;
+    border-bottom: 3px solid red
+}
+
+.notice-card hr {
+    color: #ddd;
+    border-color: #ddd;
+    background-color: #ddd;
+    height: 1px;
+    border: 0;
+    margin: 0;
+}
+
+.notice-card-main {
+    padding: 20px;
+}
+
+.notice-card-buttons {
+    padding: 0 20px;
+    display: inline-block;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-attachment {
+    color: #000;
+    text-decoration: none;
+}
+
+.attachment-button {
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: #ddd;
+    padding: 10px 30px 10px 10px;
 }

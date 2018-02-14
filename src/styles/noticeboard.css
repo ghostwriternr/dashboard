@@ -27,6 +27,10 @@
     font-weight: bold;
 }
 
+.card-date {
+    color: #777;
+}
+
 .card-attachment {
     color: #000;
     text-decoration: none;

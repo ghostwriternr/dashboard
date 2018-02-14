@@ -6,9 +6,11 @@ class Noticecard extends Component {
     super(props);
     this.state = {
       title: props.title,
+      time: props.time,
       content: props.content,
       attachment: props.attachment
     }
+    console.log(this.state);
   }
   render() {
     return (
@@ -17,6 +19,15 @@ class Noticecard extends Component {
           <div className="card-title">
             {this.state.title}
           </div>
+          {(() => {
+            if (this.state.time) {
+              return (
+                <div className="card-date">
+                  {this.state.time}
+                </div>
+              );
+            }
+          })()}
           <br />
           <div className="card-content" dangerouslySetInnerHTML={{__html: this.state.content}} />
         </div>

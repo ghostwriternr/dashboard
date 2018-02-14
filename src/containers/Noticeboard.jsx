@@ -92,6 +92,7 @@ class Noticeboard extends Component {
               <Noticecard
                 key={i}
                 title={notice.title}
+                time={notice.time}
                 content={notice.html}
                 attachment={notice.attachment}
               />

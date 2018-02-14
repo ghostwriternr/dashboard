@@ -1,14 +1,7 @@
-.App {
-  text-align: center;
-}
-
 .mainContent {
-  background: url(../images/welcome.jpg) no-repeat;
-  -webkit-background-size: 80%;
-  -moz-background-size: 80%;
-  -o-background-size: 80%;
-  background-size: 80%;
-  background-position: bottom;
+  background: #eef1f9;
+  position: absolute;
+  top: 0;
 }
 
 .color-1 {

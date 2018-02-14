@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Sidebar from 'react-sidebar';
 import SidebarContent from './components/sidebarContent';
 import HomeContent from './components/homeContent';
+import Noticeboard from './containers/Noticeboard';
 import './styles/App.css';
 
 const mql = window.matchMedia(`(min-width: 800px)`);
@@ -54,7 +56,10 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar {...sidebarProps}>
-          <HomeContent />
+          <Switch>
+            <Route exact path='/' component={HomeContent}/>
+            <Route exact path='/noticeboard' component={Noticeboard}/>
+          </Switch>
         </Sidebar>
       </div>
     );

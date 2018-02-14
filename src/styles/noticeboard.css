@@ -1,7 +1,7 @@
 .notice-card {
     background: #fff;
     margin: 10px 0;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid #fa709a;
     border-radius: 5px;
 }
 
@@ -30,6 +30,7 @@
 .card-attachment {
     color: #000;
     text-decoration: none;
+    outline: 0;
 }
 
 .attachment-button {
@@ -37,4 +38,50 @@
     border-style: solid;
     border-color: #ddd;
     padding: 10px 30px 10px 10px;
+}
+
+.type-list {
+    margin-bottom: 30px;
+}
+
+.type-list ul {
+    padding: 0;
+}
+
+.type-list ul > li {
+    display: inline-block;
+    zoom:1;
+    *display:inline;
+}
+
+.type-list ul > li a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px 0 0;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-image: linear-gradient(120deg, #c0cdd5 0%, #d1dfe7 100%);
+}
+
+.type-list ul > li:first-child a.active,
+.type-list ul > li:first-child a:hover {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.type-list ul > li:nth-of-type(2) a.active,
+.type-list ul > li:nth-of-type(2) a:hover {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.type-list ul > li:nth-of-type(3) a.active,
+.type-list ul > li:nth-of-type(3) a:hover {
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+}
+
+.type-list ul > li:nth-of-type(4) a.active,
+.type-list ul > li:nth-of-type(4) a:hover {
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }

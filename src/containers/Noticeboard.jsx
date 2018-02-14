@@ -6,7 +6,7 @@ import Noticecard from '../components/Noticecard'
 import '../styles/section.css';
 import '../styles/noticeboard.css';
 
-const veritas_url = 'http://localhost:5001/'
+const veritas_url = 'http://hermes.mykgp.com/'
 const notice_urls = ['acad_ug', 'acad_pg', 'bcrth', 'public']
 
 class Noticeboard extends Component {
@@ -14,19 +14,31 @@ class Noticeboard extends Component {
     super(props);
     this.state = {
       notices: [],
-      notice_type: notice_urls[3],
+      notice_type: 0,
       notice_next_page: null,
       all_fetched: false
     }
     this.getNotices = this.getNotices.bind(this);
+    this.switchType = this.switchType.bind(this);
     this._handleWaypointEnter = this._handleWaypointEnter.bind(this);
     this._handleWaypointLeave = this._handleWaypointLeave.bind(this);
   }
 
+  switchType(type_index) {
+    if (type_index !== this.state.notice_type){
+      this.setState({
+        notices: [],
+        notice_type: type_index,
+        notice_next_page: null,
+        all_fetched: false
+      });
+    }
+  }
+
   getNotices(notice_type, next_page) {
-    var requestUrl = veritas_url + notice_type
+    var requestUrl = veritas_url + notice_urls[notice_type]
     if (next_page) {
-      requestUrl = veritas_url + notice_type + '/page/' + next_page
+      requestUrl = veritas_url + notice_urls[notice_type] + '/page/' + next_page
     }
     axios.get(requestUrl)
     .then(response => {
@@ -34,7 +46,6 @@ class Noticeboard extends Component {
         notices: this.state.notices.concat(response['data']['data']),
         notice_next_page: response['data']['next_cursor']
       });
-      console.log(this.state);
     }).catch(error => {
       console.log(error);
     })
@@ -59,6 +70,22 @@ class Noticeboard extends Component {
     return (
       <div className="section-main">
         <div className="section-title">Noticeboard</div>
+        <div className="type-list">
+          <ul>
+            <li>
+              <a className={this.state.notice_type === 0? 'active type-button' : 'type-button'} onClick={() => this.switchType(0)}>UG</a>
+            </li>
+            <li>
+              <a className={this.state.notice_type === 1? 'active type-button' : 'type-button'} onClick={() => this.switchType(1)}>PG</a>
+            </li>
+            <li>
+              <a className={this.state.notice_type === 2? 'active type-button' : 'type-button'} onClick={() => this.switchType(2)}>BC Roy</a>
+            </li>
+            <li>
+              <a className={this.state.notice_type === 3? 'active type-button' : 'type-button'} onClick={() => this.switchType(3)}>General</a>
+            </li>
+          </ul>
+        </div>
         <div className="notice-list">
           {
             this.state.notices.map((notice, i) =>

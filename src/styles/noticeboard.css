@@ -1,7 +1,8 @@
 .notice-card {
     background: #fff;
     margin: 10px 0;
-    border-bottom: 3px solid red
+    border-bottom: 3px solid red;
+    border-radius: 5px;
 }
 
 .notice-card hr {

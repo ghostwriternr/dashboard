@@ -20,14 +20,22 @@ class Noticecard extends Component {
           <br />
           <div className="card-content" dangerouslySetInnerHTML={{__html: this.state.content}} />
         </div>
-        <hr />
-        <div className="notice-card-buttons">
-          <a className="card-attachment" href={this.state.attachment} target="_blank">
-            <div className="attachment-button">
-              <i className="fas fa-download"></i> Download attachment
-            </div>
-          </a>
-        </div>
+        {(() => {
+          if (this.state.attachment) {
+            return (
+              <div>
+                <hr />
+                <div className="notice-card-buttons">
+                  <a className="card-attachment" href={this.state.attachment} target="_blank">
+                    <div className="attachment-button">
+                      <i className="fas fa-download"></i> Download attachment
+                    </div>
+                  </a>
+                </div>
+              </div>
+            );
+          }
+        })()}
       </div>
     )
   }

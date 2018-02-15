@@ -6,7 +6,7 @@ import Noticecard from '../components/Noticecard'
 import '../styles/section.css';
 import '../styles/noticeboard.css';
 
-const veritas_url = 'http://hermes.mykgp.com/'
+const veritas_url = 'https://hermes.mykgp.com/'
 const notice_urls = ['acad_ug', 'acad_pg', 'bcrth', 'public']
 
 class Noticeboard extends Component {

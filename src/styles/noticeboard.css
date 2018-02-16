@@ -89,3 +89,47 @@
 .type-list ul > li:nth-of-type(4) a:hover {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    cursor: pointer;
+    outline: 0;
+}
+
+a.tooltip {
+    text-decoration: none;
+    color: #000;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 130%;
+    left: 50%;
+    margin-left: -60px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

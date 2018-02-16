@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Waypoint from 'react-waypoint';
 import { Code } from 'react-content-loader';
+import https from 'https';
 import axios from 'axios';
 import Noticecard from '../components/Noticecard'
 import '../styles/section.css';
 import '../styles/noticeboard.css';
 
-const veritas_url = 'https://hermes.mykgp.com/'
-const notice_urls = ['acad_ug', 'acad_pg', 'bcrth', 'public']
+const veritas_url = 'https://hermes.mykgp.com/';
+const notice_urls = ['acad_ug', 'acad_pg', 'bcrth', 'public'];
+
+axios.defaults.httpsAgent = new https.Agent({rejectUnauthorized: false});
 
 class Noticeboard extends Component {
   constructor(props) {
@@ -36,9 +39,9 @@ class Noticeboard extends Component {
   }
 
   getNotices(notice_type, next_page) {
-    var requestUrl = veritas_url + notice_urls[notice_type]
+    var requestUrl = veritas_url + notice_urls[notice_type] + '/';
     if (next_page) {
-      requestUrl = veritas_url + notice_urls[notice_type] + '/page/' + next_page
+      requestUrl = veritas_url + notice_urls[notice_type] + '/page/' + next_page;
     }
     axios.get(requestUrl)
     .then(response => {

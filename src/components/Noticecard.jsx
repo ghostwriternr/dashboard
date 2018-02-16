@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import linkifyHtml from 'linkifyjs/html';
 import '../styles/noticeboard.css'
 
 class Noticecard extends Component {
@@ -29,7 +30,7 @@ class Noticecard extends Component {
             }
           })()}
           <br />
-          <div className="card-content" dangerouslySetInnerHTML={{__html: this.state.content}} />
+          <div className="card-content" dangerouslySetInnerHTML={{__html: linkifyHtml(this.state.content)}} />
         </div>
         {(() => {
           if (this.state.attachment) {

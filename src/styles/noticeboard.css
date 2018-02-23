@@ -58,35 +58,41 @@
     *display:inline;
 }
 
-.type-list ul > li a {
+.type-list ul > li button {
     text-decoration: none;
     color: #fff;
     margin: 0 15px 0 0;
     padding: 10px 30px;
     border-radius: 30px;
+    border: 0;
+    outline: 0;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     background-image: linear-gradient(120deg, #c0cdd5 0%, #d1dfe7 100%);
 }
 
-.type-list ul > li:first-child a.active,
-.type-list ul > li:first-child a:hover {
+.type-list ul > li button::-moz-focus-inner {
+    border: 0;
+}  
+
+.type-list ul > li:first-child button.active,
+.type-list ul > li:first-child button:hover {
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
-.type-list ul > li:nth-of-type(2) a.active,
-.type-list ul > li:nth-of-type(2) a:hover {
+.type-list ul > li:nth-of-type(2) button.active,
+.type-list ul > li:nth-of-type(2) button:hover {
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
-.type-list ul > li:nth-of-type(3) a.active,
-.type-list ul > li:nth-of-type(3) a:hover {
+.type-list ul > li:nth-of-type(3) button.active,
+.type-list ul > li:nth-of-type(3) button:hover {
     background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
 }
 
-.type-list ul > li:nth-of-type(4) a.active,
-.type-list ul > li:nth-of-type(4) a:hover {
+.type-list ul > li:nth-of-type(4) button.active,
+.type-list ul > li:nth-of-type(4) button:hover {
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 

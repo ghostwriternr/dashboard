@@ -1,26 +1,43 @@
-import React, { Component } from "react";
-import Waypoint from "react-waypoint";
-import { Code } from "react-content-loader";
-import Noticecard from "../components/Noticecard";
-import "../styles/section.css";
-import "../styles/noticeboard.css";
+import propTypes from 'prop-types';
+import React, { Component } from 'react';
+import Waypoint from 'react-waypoint';
+import { Code } from 'react-content-loader';
+import { connect } from 'react-redux';
+import Noticecard from '../components/Noticecard';
+import '../styles/section.css';
+import '../styles/noticeboard.css';
 
-import { connect } from "react-redux";
-import { fetchNotices as fetchNotices_ } from "../actions/actions";
+import fetchNotices_ from '../actions/actions';
+
+const noticeTypes = [
+  {
+    name: 'UG',
+    type: 0,
+  }, {
+    name: 'PG',
+    type: 1,
+  }, {
+    name: 'BC Roy',
+    type: 2,
+  }, {
+    name: 'General',
+    type: 3,
+  },
+];
 
 class Noticeboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      noticeType: 0
+      noticeType: 0,
     };
     this.props.fetchNotices(0);
   }
 
-  switchType = type_index => {
-    this.setState({ noticeType: type_index });
+  switchType = (typeIndex) => {
+    this.setState({ noticeType: typeIndex });
     // fetch first page only
-    this.props.fetchNotices(type_index, true);
+    this.props.fetchNotices(typeIndex, true);
   };
 
   _handleWaypointEnter = () => {
@@ -38,22 +55,22 @@ class Noticeboard extends Component {
         <div className="section-title">Noticeboard</div>
         <div className="type-list">
           <ul>
-            {["UG", "PG", "BC Roy", "General"].map((str, idx) => (
-              <li key={idx}>
-                <a
+            {noticeTypes.map(({ name, type }) => (
+              <li key={type}>
+                <button
                   className={
-                    noticeType === idx ? "active type-button" : "type-button"
+                    noticeType === type ? 'active type-button' : 'type-button'
                   }
-                  onClick={() => this.switchType(idx)}
+                  onClick={() => this.switchType(type)}
                 >
-                  {str}
-                </a>
+                  {name}
+                </button>
               </li>
             ))}
           </ul>
         </div>
         <div className="notice-list">
-          {data.map((notice, i) => <Noticecard key={i} {...notice} />)}
+          {data.map(notice => <Noticecard key={notice._id} {...notice} />)}
           <Waypoint
             onEnter={this._handleWaypointEnter}
             onLeave={this._handleWaypointLeave}
@@ -65,7 +82,7 @@ class Noticeboard extends Component {
               primaryColor="#fff"
             />
           ) : (
-            ""
+            ''
           )}
         </div>
       </div>
@@ -73,12 +90,21 @@ class Noticeboard extends Component {
   }
 }
 
+Noticeboard.propTypes = {
+  fetchNotices: propTypes.func.isRequired,
+  notices: propTypes.oneOfType([
+    propTypes.array,
+    propTypes.object,
+  ]).isRequired,
+  isFetching: propTypes.bool.isRequired,
+};
+
 export default connect(
   ({ noticesData }) => ({
-    ...noticesData
+    ...noticesData,
   }),
   dispatch => ({
     fetchNotices: (noticeType, firstPageOnly) =>
-      dispatch(fetchNotices_(noticeType, firstPageOnly))
-  })
+      dispatch(fetchNotices_(noticeType, firstPageOnly)),
+  }),
 )(Noticeboard);

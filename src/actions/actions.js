@@ -1,53 +1,54 @@
-import axios from "axios";
-import { unionBy } from "lodash/array";
-import { getLinkifiedHTML } from "./util";
+import axios from 'axios';
+import { unionBy } from 'lodash/array';
+import getLinkifiedHTML from './util';
 
-const notice_urls = ["acad_ug", "acad_pg", "bcrth", "public"];
-const veritas_url = "https://hermes.mykgp.com/";
+const noticeUrls = ['acad_ug', 'acad_pg', 'bcrth', 'public'];
+const veritasUrl = 'https://hermes.mykgp.com/';
 
-var updateNotices = notices => ({
-  type: "UPDATE_NOTICES",
-  value: notices
+const updateNotices = notices => ({
+  type: 'UPDATE_NOTICES',
+  value: notices,
 });
 
-var setFetchingNotices = value => ({
-  type: "SET_FETCHING_NOTICES",
-  value: value
+const setFetchingNotices = value => ({
+  type: 'SET_FETCHING_NOTICES',
+  value,
 });
 
-export var fetchNotices = (noticeType, firstPageOnly = false) => (
+const fetchNotices = (noticeType, firstPageOnly = false) => (
   dispatch,
-  getState
+  getState,
 ) => {
   // getState() returns mutable, make sure to create copy
-  var notices = { ...getState().noticesData.notices };
-  var currentTypeNotices = notices[noticeType];
+  const notices = { ...getState().noticesData.notices };
+  const currentTypeNotices = notices[noticeType];
   const { allFetched, nextPage } = currentTypeNotices;
   if (!allFetched) {
-    var url = `${veritas_url}${notice_urls[noticeType]}/`;
+    let url = `${veritasUrl}${noticeUrls[noticeType]}/`;
     if (nextPage && !firstPageOnly) {
       url = `${url}page/${nextPage}`;
     }
     dispatch(setFetchingNotices(true));
     axios
       .get(url)
-      .then(response => {
+      .then((response) => {
         const { data } = currentTypeNotices;
-        const parsedNewData = response["data"]["data"].map(notice => ({
+        const parsedNewData = response.data.data.map(notice => ({
           ...notice,
-          linkifiedHTML: getLinkifiedHTML(notice)
+          linkifiedHTML: getLinkifiedHTML(notice),
         }));
         notices[noticeType] = {
-          data: unionBy(data, parsedNewData, "_id"),
+          data: unionBy(data, parsedNewData, '_id'),
           allFetched:
-            nextPage === response["data"]["next_cursor"] && !firstPageOnly,
-          nextPage: response["data"]["next_cursor"]
+            nextPage === response.data.next_cursor && !firstPageOnly,
+          nextPage: response.data.next_cursor,
         };
         dispatch(setFetchingNotices(false));
         dispatch(updateNotices(notices));
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
 };
+export default fetchNotices;

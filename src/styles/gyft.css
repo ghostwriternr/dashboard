@@ -1,0 +1,85 @@
+.gyft-cards {
+    min-height: 100px;
+    margin: 20px 0;
+    display: flex;
+    text-align: center;
+    color: #fff;
+}
+
+.gyft-card {
+    margin: 10px;
+    padding: 20px;
+    flex-grow: 1;
+    flex-basis: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.gyft-desc {
+    margin-bottom: 10px;
+}
+
+.start-gyft {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background-image: linear-gradient(120deg, #c0cdd5 0%, #d1dfe7 100%);
+}
+
+.gyft-ss {
+    background: #58cfc1;
+}
+
+.gyft-pass {
+    background: #fe5f8b;
+    cursor: not-allowed;
+}
+
+.gyft-html {
+    background: #febb7c;
+    cursor: not-allowed;
+}
+
+.gyft-status {
+    font-size: 1.2rem;
+}
+
+.gyft-result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.gyft-table {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.ttTable {
+    background: #fff;
+    border-radius: 15px;
+}
+
+.ttTable .rt-table {
+    border-radius: 15px;
+}
+
+.ttTable .rt-thead {
+    border-radius: 15px;
+    background: #27b4c6;
+    color: white;
+}
+
+.ttTable .rt-td {
+    white-space: pre-wrap;
+}

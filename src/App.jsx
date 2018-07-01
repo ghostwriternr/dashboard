@@ -8,6 +8,7 @@ import logger from 'redux-logger';
 import SidebarContent from './components/sidebarContent';
 import HomeContent from './components/homeContent';
 import Noticeboard from './containers/Noticeboard';
+import Gyft from './containers/Gyft';
 import './styles/App.css';
 import noticesReducer from './reducers/reducers';
 
@@ -69,6 +70,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={HomeContent} />
               <Route exact path="/noticeboard" component={Noticeboard} />
+              <Route exact path="/gyft" component={Gyft} />
             </Switch>
           </Sidebar>
         </Provider>

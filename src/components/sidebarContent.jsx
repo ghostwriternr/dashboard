@@ -18,19 +18,19 @@ const SidebarContent = () => (
         <Navlink to="/noticeboard"><i className="fas fa-calendar-alt color-3" /> Noticeboard</Navlink>
       </li>
       <li>
-        <a><i className="fas fa-graduation-cap color-4" /> Courses</a>
+        <Navlink to="/gyft"><i className="fas fa-calendar-check color-4" /> GYFT</Navlink>
       </li>
       <li>
-        <a><i className="fas fa-print color-1" /> MFQP</a>
+        <a><i className="fas fa-graduation-cap color-1" /> Courses</a>
       </li>
       <li>
-        <a><i className="fas fa-user color-3" /> MCMP</a>
+        <a><i className="fas fa-print color-3" /> MFQP</a>
       </li>
       <li>
-        <a><i className="fas fa-newspaper color-4" /> Naarad</a>
+        <a><i className="fas fa-user color-4" /> MCMP</a>
       </li>
       <li>
-        <a><i className="fas fa-calendar-check color-1" /> GYFT</a>
+        <a><i className="fas fa-newspaper color-1" /> Naarad</a>
       </li>
       <li>
         <a><i className="fas fa-car color-3" /> Cab sharing</a>

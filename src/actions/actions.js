@@ -3,7 +3,7 @@ import { unionBy } from 'lodash/array';
 import getLinkifiedHTML from './util';
 
 const noticeUrls = ['acad_ug', 'acad_pg', 'bcrth', 'public'];
-const veritasUrl = 'https://hermes.mykgp.com/';
+const veritasUrl = 'https://veritas.ghostwriternr.me/';
 
 const updateNotices = notices => ({
   type: 'UPDATE_NOTICES',
